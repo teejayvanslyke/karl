@@ -1,0 +1,11 @@
+@button = button "Push Me"
+
+@button2 = button "Just touch me"
+
+@button.click { 
+  alert "hello world"
+}
+
+@button2.hover {
+  alert "tee-hee!"
+}
