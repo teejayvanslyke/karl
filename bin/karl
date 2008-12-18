@@ -45,4 +45,4 @@ path = OPTIONS[:path]
 
 # do stuff
 frame = Karl::Frame.from_file(ARGV[0])
-puts frame.to_html
+puts frame.rendered

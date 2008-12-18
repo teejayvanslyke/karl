@@ -8,7 +8,7 @@ module Karl
     end
 
     def to_html
-      '<input type="button" id="'+dom_id+'" value="'+@title+'"/>'
+      '<input type="button" id="'+dom_id+'" class="'+html_class+'" value="'+@title+'"/>'
     end
 
     def click(&block)

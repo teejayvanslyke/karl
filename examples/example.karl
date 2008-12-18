@@ -1,11 +1,7 @@
-@button = button "Push Me"
+title "My Karl View"
 
-@button2 = button "Just touch me"
-
-@button.click { 
-  alert "hello world"
+stack {
+  @button = button "Push Me"
+  @button2 = button "Just touch me"
 }
 
-@button2.hover {
-  alert "tee-hee!"
-}
