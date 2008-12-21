@@ -4,6 +4,8 @@ module Karl
 
   class Widget
 
+    attr_reader :children
+
     def to_js 
       @children.map{|c| c.to_js }.join("\n")
     end
@@ -49,7 +51,6 @@ module Karl
     def dom_id
       "karl_#{object_id}"
     end
-
 
   end
 
