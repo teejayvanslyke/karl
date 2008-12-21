@@ -1,6 +1,6 @@
 module Karl
 
-  class Stack < Widget
+  class Flow < Widget
 
     def to_html
       result = '<div class="' << html_class << '">'
@@ -9,7 +9,8 @@ module Karl
       end
       result += '</div>'
     end
-
+    
   end
 
 end
+
