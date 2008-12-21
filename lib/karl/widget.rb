@@ -12,8 +12,8 @@ module Karl
       @children.map{|c| c.to_html }.join("\n")
     end
 
-    def html_class
-      self.class.name.underscore.gsub('/', '_')
+    def self.html_class
+      self.name.split('::').last.underscore
     end
 
     def initialize(block)

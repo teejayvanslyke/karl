@@ -58,5 +58,18 @@ describe Karl::Frame do
     end
 
   end
+  
+
+  describe "when creating a new frame from a file" do
+
+    describe "when it's a file" do
+    end
+
+    describe "when it's a file name" do
+    end
+
+    it "opens the file"
+
+  end
 
 end
