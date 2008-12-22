@@ -2,8 +2,10 @@ module Karl
 
   class Button < Widget
 
-    def initialize(title="Untitled Button")
-      @title = title
+    def self.create(title="Untitled Button")
+      Button.new lambda {
+        @title = title
+      }
     end
 
     def to_html

@@ -6,12 +6,16 @@ module Karl
 
     attr_reader :children
 
-    def to_js 
-      @children.map{|c| c.to_js }.join("\n")
-    end
-
     def to_html
       @children.map{|c| c.to_html }.join("\n")
+    end
+
+    def to_js
+      @callbacks.inject("") do |acc, callback|
+        event = callback[0]
+        javascript = callback[1]
+        acc << "$(##{dom_id}).#{event}(function(event){#{javascript}});"
+      end << @children.map{|c| c.to_js }.join("\n") 
     end
 
     def self.html_class
@@ -23,7 +27,8 @@ module Karl
     end
 
     def initialize(block)
-      @children = []
+      @children  = []
+      @callbacks = []
       instance_eval(&block)
     end
 
@@ -36,11 +41,20 @@ module Karl
     end
 
     def button(title=nil)
-      add_child(Button.new(title))
+      add_child(Button.create(title))
     end
 
     def text_field(value=nil)
       add_child(TextField.new(value))
+    end
+
+    def click(javascript)
+      add_callback(:click, javascript)
+    end
+
+    def add_callback(event, javascript)
+      @callbacks ||= []
+      @callbacks << [event, javascript]
     end
 
     def add_child(child)

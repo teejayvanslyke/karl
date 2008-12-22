@@ -1,29 +1,12 @@
 title "My Karl View"
 
-stack {
-
 flow {
-  @button = button "Push Me"
-  text_field "Testing"
-  }
-  @button2 = button "Just touch me"
+  @text_field = text_field ""
+  @button     = button     "Click Here"
 
-  flow {
-    button "again!"
-    button "one more time!"
-
-    stack { 
-      button "stack in flow"
-      button "to go!"
-    stack { 
-      button "stack in flow"
-      button "to go!"
-    flow { 
-      button "stack in flow"
-      button "to go!"
-    }
-    }
-    }
-  }
+  @button.click <<JS
+    alert(text_field.val());
+JS
 }
+
 
